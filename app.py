@@ -3,6 +3,8 @@ from db.load_csv import *
 from db.connection import get_connection
 
 cnx = get_connection()
+
+
 def print_menu():
     print("""
     =======menu=======
@@ -15,6 +17,7 @@ def print_menu():
     7. Exit
     ==================""")
 
+
 class Main:
     while True:
         print_menu()
@@ -25,11 +28,11 @@ class Main:
 
             case "2":
                 institution = input("enter an institution do you want search on: ")
-                search_records_by_Institution_Name(institution,cnx)
+                search_records_by_Institution_Name(institution, cnx)
 
             case "3":
                 course = input("enter a course do you want search on: ")
-                search_records_by_Course_Name(course,cnx)
+                search_records_by_Course_Name(course, cnx)
 
             case "4":
                 order_choice = input("which order tou want 1.desc 2.asc: ")
@@ -37,16 +40,17 @@ class Main:
                     order = "desc"
                 else:
                     order = "asc"
-                find_most_or_least_common_course(order,cnx)
+                find_most_or_least_common_course(order, cnx)
 
             case "5":
                 show_course_count(cnx)
 
             case "6":
                 query = input("please enter your query: ")
-                free_sql_query(query,cnx)
+                free_sql_query(query, cnx)
 
             case "7":
                 exit()
+
 
 Main()
